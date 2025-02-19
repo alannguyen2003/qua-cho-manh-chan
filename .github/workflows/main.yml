@@ -1,0 +1,16 @@
+name: backend-service-deployment
+
+on: 
+  push:
+    branches: 
+      main
+      
+jobs:
+  docker-compose: 
+    runs-on: self-hosted
+    environment: docker
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - name: Run "docker"
+      run: docker compose up --build
